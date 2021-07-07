@@ -43,10 +43,10 @@ def create_data(params):
     for i in range(count):
         for j in range(dict[freq]):
             gap.append(params["features"][0][i])
-    for i in range(3):
+    for i in range(count):
         for j in range(dict[freq]):
             pay.append(params["features"][1][i])
-    for i in range(3):
+    for i in range(count):
         for j in range(dict[freq]):
             employment.append(params["features"][2][i])
 
