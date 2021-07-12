@@ -50,6 +50,10 @@ def predict_date(type,fromDate,toDate):
     date = date.tolist()
     igap = data['Gap']
     igap = igap.tolist()
+    emprt = data['Employment Rate']
+    emprt = emprt.tolist()
+    average_pay = data['Average Pay']
+    average_pay = average_pay.tolist()
     interest_rate = data['Interest Rate']
     interest_rate = interest_rate.tolist()
     inflation_rate = data['Inflation Rate']
@@ -65,6 +69,8 @@ def predict_date(type,fromDate,toDate):
             {
                 "date":date,
                 "Interest Inflation Gap":igap,
+                "Employment Rate":emprt,
+                "Average Pay":average_pay,
                 "Interest Rate":interest_rate,
                 "Inflation Rate":inflation_rate,
                 "Deposits":deposits
@@ -75,6 +81,8 @@ def predict_date(type,fromDate,toDate):
             {
                 "date": date,
                 "Interest Inflation Gap": igap,
+                "Employment Rate": emprt,
+                "Average Pay": average_pay,
                 "Interest Rate": interest_rate,
                 "Inflation Rate": inflation_rate,
                 "Withdrawal": withdrawal
@@ -85,6 +93,8 @@ def predict_date(type,fromDate,toDate):
             {
                 "date": date,
                 "Interest Inflation Gap": igap,
+                "Employment Rate": emprt,
+                "Average Pay": average_pay,
                 "Interest Rate": interest_rate,
                 "Inflation Rate": inflation_rate,
                 "Balance": balance
