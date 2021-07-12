@@ -31,7 +31,7 @@ from pandas.io.parsers import read_csv
 # }
 def create_data2():
     data = pd.read_csv('./assets/final_dataset_linear.csv')
-    data.insert(0,'Gap',data['Inflation Rate'] - data['Interest Rate'])
+    data.insert(0,'Gap',data['Interest Rate']-data['Inflation Rate'])
     # data['Gap'] = data['Inflation Rate'] - data['Interest Rate']
     day = pd.DatetimeIndex(data['Date']).day
     DATE = data['Date']
@@ -86,6 +86,6 @@ def create_data(params):
     df.insert(0, 'Day', day)
     df.insert(0, 'Year', year)
     df.insert(0, 'Month', month)
-    print(df)
+    # print(df)
     # del df['Year']
     return df,dates

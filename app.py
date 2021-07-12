@@ -105,6 +105,7 @@ def predict_date(type,fromDate,toDate):
 def predict2():
     params = request.get_json(force=True)
     x_test,dates = create_data(params=params)
+    print(x_test)
     type = params["type"]
     if type == 2:
         model1 = pickle.load(open(Models[0], 'rb'))
