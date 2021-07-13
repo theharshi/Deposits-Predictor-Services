@@ -15,16 +15,8 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return 'Hello World'
-# @app.route('/api/predict/<int:type>/<int:count>',methods = ['GET'])
-# def predict(count):
-#     x_train = data.iloc[0:count,0:8]
-#     model = pickle.load(open(Models[type], 'rb'))
-#     prediction = model.predict(x_train)
-#     prediction = prediction.tolist()
-#     return jsonify({" predictions " : prediction })
-#
-#
-@app.route('/api/predict_date/<int:type>/<fromDate>/<toDate>', methods=['GET'])
+
+@app.route('/api/analyze/<int:type>/<fromDate>/<toDate>', methods=['GET'])
 def predict_date(type,fromDate,toDate):
     data = create_data2()
     print(data)
@@ -67,42 +59,42 @@ def predict_date(type,fromDate,toDate):
     if type == 0:
         return jsonify(
             {
-                "date":date,
+                "Date":date,
                 "Interest Inflation Gap":igap,
                 "Employment Rate":emprt,
                 "Average Pay":average_pay,
-                "Interest Rate":interest_rate,
-                "Inflation Rate":inflation_rate,
-                "Deposits":deposits
+                # "Interest Rate":interest_rate,
+                # "Inflation Rate":inflation_rate,
+                "Deposit":deposits
             }
         )
     elif type == 1:
         return jsonify(
             {
-                "date": date,
+                "Date": date,
                 "Interest Inflation Gap": igap,
                 "Employment Rate": emprt,
                 "Average Pay": average_pay,
-                "Interest Rate": interest_rate,
-                "Inflation Rate": inflation_rate,
+                # "Interest Rate": interest_rate,
+                # "Inflation Rate": inflation_rate,
                 "Withdrawal": withdrawal
             }
         )
     else:
         return jsonify(
             {
-                "date": date,
+                "Date": date,
                 "Interest Inflation Gap": igap,
                 "Employment Rate": emprt,
                 "Average Pay": average_pay,
-                "Interest Rate": interest_rate,
-                "Inflation Rate": inflation_rate,
+                # "Interest Rate": interest_rate,
+                # "Inflation Rate": inflation_rate,
                 "Balance": balance
             }
         )
 
-@app.route('/api/predict2/', methods=['GET','POST'])
-def predict2():
+@app.route('/api/predict/', methods=['GET','POST'])
+def predict():
     params = request.get_json(force=True)
     x_test,dates = create_data(params=params)
     print(x_test)
@@ -131,3 +123,4 @@ def predict2():
 
 if __name__ == '__main__':
     app.run(debug=True)
+{"mode":"full","isActive":false}

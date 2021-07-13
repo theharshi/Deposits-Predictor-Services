@@ -1,34 +1,7 @@
 import datetime
 
 import pandas as pd
-from pandas.io.parsers import read_csv
-# {
-#     "frequency": 0,
-#     "count": 3,
-#     "type": 2,
-#     "columns": [
-#          "Interest Inflation Gap",
-#         "Average Pay",
-#         "Employment Rate"
-#     ],
-#     "features": [
-#         [
-#             100,
-#             -0.5,
-#             90
-#         ],
-#         [
-#             120,
-#             -0.55,
-#             89
-#         ],
-#         [
-#             110,
-#             -0.45,
-#             88
-#         ]
-#     ]
-# }
+
 def create_data2():
     data = pd.read_csv('./assets/final_dataset_linear.csv')
     data.insert(0,'Gap',data['Interest Rate']-data['Inflation Rate'])
